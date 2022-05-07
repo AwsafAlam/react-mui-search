@@ -1,0 +1,27 @@
+{
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "printWidth": 100,
+  "singleQuote": true,
+  "semi": false,
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "jsxSingleQuote": true,
+  "useTabs": true,
+  "htmlWhitespaceSensitivity": "strict",
+  "jsxBracketSameLine": true,
+  "overrides": [
+    {
+      "files": "*.test.js",
+      "options": {
+        "semi": true
+      }
+    },
+    {
+      "files": [".prettierrc", "package.json"],
+      "options": {
+        "useTabs": false
+      }
+    }
+  ]
+}
