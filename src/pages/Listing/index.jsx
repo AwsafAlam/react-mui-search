@@ -34,7 +34,12 @@ function Listing() {
 
 	useEffect(() => {
 		async function fetchData() {
-			if (debouncedSearchItem && searchItem.length > 2) {
+			console.log(debouncedSearchItem, city, state)
+			if (
+				(debouncedSearchItem && searchItem.length > 2) ||
+				city !== '' ||
+				state.state_code !== ''
+			) {
 				setIsSearching(true)
 				const res = await searchListing({ name: searchItem, city, state: state.state_code })
 				if (!res.error) {
@@ -48,7 +53,7 @@ function Listing() {
 			}
 		}
 		fetchData()
-	}, [debouncedSearchItem])
+	}, [debouncedSearchItem, city, state])
 
 	useEffect(() => {
 		async function fetchCities() {
@@ -66,7 +71,7 @@ function Listing() {
 	}, [state])
 
 	return (
-		<div style={{ backgroundColor: '#efeeed' }}>
+		<div>
 			<Hero imgSrc='/static/images/hero.jpeg'>
 				<section className={classes.mainContent}>
 					{isSearching || loadingCity ? (

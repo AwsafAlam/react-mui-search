@@ -12,8 +12,9 @@ import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
+import { Link } from 'react-router-dom'
 
-const pages = ['Listings', 'Pricing', 'Blog']
+const pages = ['Listings', 'Blog']
 const settings = ['Profile', 'Dashboard', 'Logout']
 
 const Navbar = () => {
@@ -39,7 +40,9 @@ const Navbar = () => {
 		<AppBar position='static' color='transparent'>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
-					<img src='/static/images/logo.svg' alt='logo' style={{ height: 50, marginRight: 5 }} />
+					<Link to='/'>
+						<img src='/static/images/logo.svg' alt='logo' style={{ height: 50, marginRight: 10 }} />
+					</Link>
 
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
@@ -80,9 +83,11 @@ const Navbar = () => {
 
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map(page => (
-							<Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
-								{page}
-							</Button>
+							<Link to='/'>
+								<Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
+									{page}
+								</Button>
+							</Link>
 						))}
 					</Box>
 
