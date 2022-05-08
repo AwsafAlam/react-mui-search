@@ -6,7 +6,9 @@
 			"@/components/*": ["./components/*"],
 			"@/pages/*": ["./pages/*"],
 			"@/layouts/*": ["./layouts/*"],
-			"@/hooks/*": ["./hooks/*"]
+			"@/hooks/*": ["./hooks/*"],
+			"@/util/*": ["./util/*"],
+			"@/api/*": ["./api/*"]
 		}
 	}
 }

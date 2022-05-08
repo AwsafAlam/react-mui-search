@@ -1,0 +1,10 @@
+.mainContent {
+  height: 200px;
+  max-width: 800px;
+  text-align: center;
+  margin: 30px auto;
+  border: 1px solid sandybrown;
+  border-radius: 20px;
+  background-color: rgb(244, 247, 249);
+  box-shadow: -7px 4px 34px rgb(0 0 0 / 20%);
+}
