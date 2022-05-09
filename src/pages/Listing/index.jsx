@@ -34,7 +34,6 @@ function Listing() {
 
 	useEffect(() => {
 		async function fetchData() {
-			console.log(debouncedSearchItem, city, state)
 			if (
 				(debouncedSearchItem && searchItem.length > 2) ||
 				city !== '' ||
@@ -43,7 +42,7 @@ function Listing() {
 				setIsSearching(true)
 				const res = await searchListing({ name: searchItem, city, state: state.state_code })
 				if (!res.error) {
-					console.log(res)
+					// console.log(res)
 					setResults(res)
 					setIsSearching(false)
 				}
