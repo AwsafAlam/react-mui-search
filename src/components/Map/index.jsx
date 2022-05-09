@@ -7,7 +7,7 @@ export default function Map() {
 			width='550'
 			height='450'
 			// style='border:0;'
-			allowfullscreen=''
+			allowFullScreen
 			loading='lazy'></iframe>
 	)
 }

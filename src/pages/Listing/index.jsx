@@ -121,7 +121,7 @@ function Listing() {
 								labelId='simple-select'
 								id='city'
 								name='city'
-								disabled={loadingCity || isSearching}
+								disabled={loadingCity || isSearching || state.state_code === ''}
 								value={city}
 								label='City'
 								onChange={handleChange}>
