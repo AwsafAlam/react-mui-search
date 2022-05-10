@@ -14,7 +14,7 @@ export const handleImageUpload = async (id, files) => {
 		// formData.append('fileName', data.fileName);
 		// formData.append('fileType', data.fileType);
 
-		const res = await axios.put(config.BASE_API_URL + '/listings/images', formData, {
+		const res = await axios.put(config.BASE_API_URL + '/v1/listings/images', formData, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}

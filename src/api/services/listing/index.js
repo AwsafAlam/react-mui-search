@@ -2,7 +2,7 @@ import { getReq, postReq } from '@/api/axiosLib'
 
 export const getAllListings = async () => {
 	try {
-		const res = await getReq('/listings')
+		const res = await getReq('/v1/listings')
 		return res.data
 	} catch (err) {
 		console.log(err)
@@ -12,7 +12,7 @@ export const getAllListings = async () => {
 
 export const getListingBySlug = async slug => {
 	try {
-		const res = await getReq('/listings/', slug)
+		const res = await getReq('/v1/listings/', slug)
 		return res.data
 	} catch (err) {
 		console.log(err)
@@ -22,7 +22,7 @@ export const getListingBySlug = async slug => {
 
 export const searchListing = async data => {
 	try {
-		const res = await postReq('/listings/search', data)
+		const res = await postReq('/v1/listings/search', data)
 		return res.data
 	} catch (err) {
 		console.log(err)

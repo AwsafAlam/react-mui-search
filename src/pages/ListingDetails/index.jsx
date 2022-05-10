@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Grid from '@mui/material/Grid'
 import { getListingBySlug } from '@/api/services/listing'
 import StackedImageList from '@/components/ImageList'
@@ -13,6 +13,7 @@ import CustomSnackbar from '@/components/CustomSnackbar'
 
 function ListingDetails() {
 	const { slug } = useParams()
+	const navigate = useNavigate()
 	const [listing, setListing] = useState()
 	const [open, setOpen] = useState(false)
 	const [snack, setSnack] = useState(false)
@@ -45,6 +46,7 @@ function ListingDetails() {
 				} else {
 					console.log(data)
 					//Navigate to home
+					navigate('/')
 				}
 			}
 		}
