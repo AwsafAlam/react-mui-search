@@ -86,12 +86,16 @@ function Listing() {
 		}
 		setOpen(false)
 	}
+	const isRequestValid =
+		state.state_code !== '' &&
+		(city || searchItem) &&
+		(city !== '' || searchItem || searchItem !== '')
 
 	return (
 		<div>
 			<CustomSnackbar open={open} setOpen={setOpen} type='error'>
 				Could not find any valid listings.
-				{state.state_code !== '' && (
+				{isRequestValid && (
 					<>
 						Leave a request and we will search for it soon.
 						<br />
