@@ -27,7 +27,6 @@ function ListingDetails() {
 			url: listing.url,
 			name: listing.name,
 			city: listing.city.toUpperCase(),
-			type: listing.type,
 			state: listing.state
 		})
 		if (!req.error) {
