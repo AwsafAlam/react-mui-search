@@ -8,14 +8,32 @@ import FormDialog from '@/components/ImageUpload'
 import { Chip, Divider, Button, Typography } from '@mui/material'
 import Call from '@mui/icons-material/Call'
 import MapOutlined from '@mui/icons-material/MapOutlined'
+import { addRequest } from '@/api/services/request'
+import CustomSnackbar from '@/components/CustomSnackbar'
 
 function ListingDetails() {
 	const { slug } = useParams()
 	const [listing, setListing] = useState()
-	const [open, setOpen] = React.useState(false)
+	const [open, setOpen] = useState(false)
+	const [snack, setSnack] = useState(false)
 
 	const handleClickOpen = () => {
 		setOpen(true)
+	}
+
+	const handleRequest = async () => {
+		console.log(listing)
+		const req = await addRequest({
+			url: listing.url,
+			name: listing.name,
+			city: listing.city,
+			type: listing.type,
+			state: listing.state
+		})
+		if (!req.error) {
+			console.log(req)
+			setSnack(true)
+		}
 	}
 
 	useEffect(() => {
@@ -36,13 +54,16 @@ function ListingDetails() {
 
 	return (
 		<div>
+			<CustomSnackbar open={snack} setOpen={setSnack} type='success'>
+				Success!
+			</CustomSnackbar>
 			{listing && <FormDialog open={open} setOpen={setOpen} listingId={listing.id} />}
 			{listing && listing.images && listing.images.length > 0 && (
 				<StackedImageList images={listing ? listing.images : []} />
 			)}
 			{/* <CustomCarousel images={listing ? listing.images : []} /> */}
 			<Grid sx={{ padding: 10 }} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-				<Grid item xs={6}>
+				<Grid item xs={12} sm={6}>
 					{listing && (
 						<div>
 							<Typography variant='h6' mb={2}>
@@ -61,9 +82,14 @@ function ListingDetails() {
 							<Divider sx={{ m: 2 }} />
 							<Typography ml='10px'>{`Zip Code:  ${listing.zipCode}`}</Typography>
 							<Typography ml='10px'>{`Capacity:  ${listing.capacity}`}</Typography>
-							<Button sx={{ m: 2 }} variant='contained' onClick={handleClickOpen}>
-								Edit
-							</Button>
+							<div style={{ display: 'flex', marginTop: 10 }}>
+								<Button sx={{ m: 1 }} variant='contained' onClick={handleClickOpen}>
+									Edit
+								</Button>
+								<Button sx={{ m: 1 }} variant='outlined' onClick={handleRequest}>
+									Request Info
+								</Button>
+							</div>
 						</div>
 					)}
 				</Grid>
