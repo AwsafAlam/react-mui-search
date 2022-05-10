@@ -93,6 +93,30 @@ function ListingDetails() {
 							</div>
 						</div>
 					)}
+					{listing && listing.mailingAddress && (
+						<div>
+							<Typography variant='h6' mb={2}>
+								Further Details:
+							</Typography>
+							<Typography>{`Mail Address:  ${listing.mailingAddress}`}</Typography>
+							{listing.county && <Typography>{`County:  ${listing.county}`}</Typography>}
+							{listing.owner && <Typography>{`Owner:  ${listing.owner}`}</Typography>}
+							{listing.licenseSince && (
+								<Typography>{`License Since:  ${listing.licenseSince}`}</Typography>
+							)}
+							{listing.profitStatus && (
+								<Typography>{`Profit Status:  ${listing.profitStatus}`}</Typography>
+							)}
+							{listing.ahaNum && <Typography>{`Aha Number:  ${listing.ahaNum}`}</Typography>}
+							{listing.cliaNum && <Typography>{`CLIA Number:  ${listing.cliaNum}`}</Typography>}
+							{listing.medicareStatus && (
+								<Typography>{`Medicare Status:  ${listing.medicareStatus}`}</Typography>
+							)}
+							{listing.fieldOffices && (
+								<Typography>{`Field Offices:  ${listing.fieldOffices}`}</Typography>
+							)}
+						</div>
+					)}
 				</Grid>
 				<Grid item xs={6}>
 					<Map />
