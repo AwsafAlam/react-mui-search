@@ -26,7 +26,7 @@ function ListingDetails() {
 		const req = await addRequest({
 			url: listing.url,
 			name: listing.name,
-			city: listing.city,
+			city: listing.city.toUpperCase(),
 			type: listing.type,
 			state: listing.state
 		})

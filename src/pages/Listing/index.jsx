@@ -79,7 +79,7 @@ function Listing() {
 		const req = await addRequest({
 			name: searchItem,
 			state: state.state_code,
-			city
+			city: city.toUpperCase()
 		})
 		if (!req.error) {
 			console.log(req)
