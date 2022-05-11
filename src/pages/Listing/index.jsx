@@ -50,8 +50,10 @@ function Listing() {
 					if (res.length === 0) setOpen(true)
 
 					setResults(res)
-					setIsSearching(false)
+				} else {
+					setOpen(true)
 				}
+				setIsSearching(false)
 			} else {
 				setResults([])
 				setIsSearching(false)
